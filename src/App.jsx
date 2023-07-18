@@ -1,22 +1,24 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
+import './components/Articles.css'
+
 import Header from './components/Header'
 import Nav from './components/Nav'
 import Articles from './components/Articles'
+import Topics from './components/Topics';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className='App'>
       <Header />
       <Nav />
-      <Articles />
-
-
-      <div><h1>NC News</h1></div>
-      <p>Check here to view more articles</p>
-    </>
+      <Routes>
+        <Route path="/" element={<Articles />} />
+        <Route path="/articles" element={<Topics />} />
+      </Routes>
+    </div>
   )
 }
 
