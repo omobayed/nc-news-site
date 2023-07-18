@@ -6,9 +6,9 @@ const Header = () => {
 
     return (
         <header className="header">
+            <div className="logged-in-user">Logged in User: {user}</div>
             <h1>NC News</h1>
-            <h2>Welcome to Our Nc News</h2>
-            <p>Logged in User: {user}</p>
+            <h2>Welcome to our news website</h2>
         </header>
     )
 }

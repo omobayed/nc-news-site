@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
     return (
-        <div className="nav">
-            <Link to='/'><p>Home</p></Link>
-            <Link to='/topics'><p>Topics</p></Link>
-        </div>
+        <nav className="nav">
+            <Link className="nav-item" to='/'>Home</Link>
+            <Link className="nav-item" to='/topics'>Topics</Link>
+        </nav>
     )
 }
 

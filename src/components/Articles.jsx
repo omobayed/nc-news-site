@@ -4,16 +4,19 @@ import ArticleCard from './ArticleCard'
 
 const Articles = () => {    
     const [articles, setArticles] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getArticles()
         .then((articles) => {
+            setIsLoading(false)
           setArticles(articles)
+
         })
       }, [])
-
+      if(isLoading) return <p>loading...</p>
     return (
-        <div className="articles-cards">
+       <article className="articles-cards">
             <ul>
                 {articles.map((article) => {
                     return (
@@ -23,7 +26,7 @@ const Articles = () => {
                     )
                 })}
             </ul>
-        </div>
+            </article>
     )
 }
 
