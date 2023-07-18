@@ -17,15 +17,11 @@ const Articles = () => {
       if(isLoading) return <p>loading...</p>
     return (
        <article className="articles-cards">
-            <ul>
-                {articles.map((article) => {
-                    return (
-                        <li key={article.article_id}>
-                            <ArticleCard article={article} />
-                        </li>
-                    )
-                })}
-            </ul>
+            {articles.map((article) => {
+                return (
+                    <ArticleCard key={article.article_id} article={article} />
+                )
+            })}
             </article>
     )
 }
