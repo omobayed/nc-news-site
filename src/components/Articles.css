@@ -7,6 +7,7 @@ ul {
 }
 
 .article-card {
+    background-color: #f4f5f7;
     margin: 20px;
     border: 1px gray dotted;
     display: flex;
@@ -20,4 +21,13 @@ ul {
 .article-card .details {
     text-align: left;
     padding: 0 20px;
+}
+
+.article {
+    background-color: #f4f5f7;
+    padding: 1px 20px;
+}
+
+.article .body {
+    text-align: justify;
 }

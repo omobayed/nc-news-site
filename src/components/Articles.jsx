@@ -13,16 +13,19 @@ const Articles = () => {
           setArticles(articles)
 
         })
-      }, [])
-      if(isLoading) return <p>loading...</p>
+    }, [])
+
+    if (isLoading)
+        return <p>loading...</p>
+
     return (
-       <article className="articles-cards">
+        <article className="articles-cards">
             {articles.map((article) => {
                 return (
                     <ArticleCard key={article.article_id} article={article} />
                 )
             })}
-            </article>
+        </article>
     )
 }
 
