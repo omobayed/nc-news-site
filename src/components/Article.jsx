@@ -6,13 +6,12 @@ import Moment from 'moment';
 
 const Article = () => {
     const [article, setArticle] = useState([])
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
     const { article_id } = useParams()
 
     useEffect(() => {
-        setIsLoading(true);
         setIsError(false);
 
         getArticleById(article_id)
@@ -38,7 +37,7 @@ const Article = () => {
         <article className="article">
             <h3>{article.title}</h3>
             <p>[{article.topic}]</p>
-            <img src={article.article_img_url} />
+            <img src={article.article_img_url} alt='image related to the article title' />
             <p className='body'>{article.body}</p>
             <footer>
                 <i><p>Posted on
