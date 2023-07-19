@@ -7,7 +7,6 @@ const Comments = ({ article_id }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
-
     useEffect(() => {
         setIsError(false);
 
@@ -35,7 +34,7 @@ const Comments = ({ article_id }) => {
             <h2 style={{marginLeft:20}}>Comments</h2>
             {comments.map((comment) => {
                 return (
-                    <CommentCard comment={comment} />
+                    <CommentCard key={comment.comment_id} comment={comment} />
                 )
             })}
         </div>

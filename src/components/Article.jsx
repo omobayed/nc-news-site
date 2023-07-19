@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import Moment from 'moment';
 import Comments from './Comments';
+import Votes from './Votes';
 
 const Article = () => {
     const [article, setArticle] = useState([])
@@ -46,6 +47,7 @@ const Article = () => {
                     <time dateTime={article.created_at}> {Moment(article.created_at).format('yyyy-MM-DD')} </time>
                     by {article.author}.</p></i>
                 </footer>
+                <Votes votes_count={article.votes} />
             </article>
             <Comments article_id={article_id} />
         </>
