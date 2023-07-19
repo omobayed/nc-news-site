@@ -1,23 +1,48 @@
+import { useEffect, useState } from 'react'
+import { getArticleComments } from '../api'
+import CommentCard from './CommentCard'
 
+const Comments = ({ article_id }) => {
+    const [comments, setComments] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
 
+    useEffect(() => {
+        setIsError(false);
 
-const Comments = () => {
+        getArticleComments(article_id)
+            .then((comments) => {
+                setIsLoading(false);
+                setIsError(false);
+                setComments(comments)
+            })
+            .catch((error) => {
+                setIsLoading(false);
+                setIsError(true);
+                console.log('Load comments error: ', error)
+            })
+    }, [article_id])
+
+    if (isLoading)
+        return <div className="comments-list"><p>Loading comments...</p></div>
+
+    if (isError)
+        return <div className="comments-list"><p>Error while loading article's comments...</p></div>
+
+    if (comments.length === 0) {
+        return <div className="comments-list"><p>No comments on this article...</p></div>
+    }
+
     return (
-        <></>
+        <div className='comments-list'>
+            <h2 style={{marginLeft:20}}>Comments</h2>
+            {comments.map((comment) => {
+                return (
+                    <CommentCard key={comment.comment_id} comment={comment} />
+                )
+            })}
+        </div>
     )
 }
+
 export default Comments
-
-
-
-
-
-
-
-
-
-body: "Quod qui quia dignissimos sit tempore vel reprehenderit. Ipsa ipsa veritatis architecto corporis et et non. Sed alias occaecati eum dignissimos sint eius. Ad ea iste quas quia velit libero voluptatem voluptatem. Animi illo nisi nulla quia sapiente omnis dolorem nulla. Sunt dolor similique.",
-votes: -5,
-author: "weegembump",
-article_id: 17,
-created_at: 1585948620000,

@@ -3,6 +3,8 @@ import { getArticleById } from "../api"
 import { useParams } from "react-router-dom";
 
 import Moment from 'moment';
+import Comments from './Comments';
+import Votes from './Votes';
 
 const Article = () => {
     const [article, setArticle] = useState([])
@@ -34,18 +36,22 @@ const Article = () => {
         return <article className="article"><p>Error while loading the Article...</p></article>
 
     return (
-        <article className="article">
-            <h3>{article.title}</h3>
-            <p>[{article.topic}]</p>
-            <img src={article.article_img_url} alt='image related to the article title' />
-            <p className='body'>{article.body}</p>
-            <footer>
-                <i><p>Posted on
-                <time dateTime={article.created_at}> {Moment(article.created_at).format('yyyy-MM-DD')} </time>
-                by {article.author}.</p></i>
-            </footer>
-        </article>
+        <>
+            <article className="article">
+                <h3>{article.title}</h3>
+                <p>[{article.topic}]</p>
+                <img src={article.article_img_url} alt='image related to the article title' />
+                <p className='body'>{article.body}</p>
+                <footer>
+                    <i><p>Posted on
+                    <time dateTime={article.created_at}> {Moment(article.created_at).format('yyyy-MM-DD')} </time>
+                    by {article.author}.</p></i>
+                </footer>
+                <Votes votes_count={article.votes} />
+            </article>
+            <Comments article_id={article_id} />
+        </>
     )
 }
 
-export default Article 
+export default Article
