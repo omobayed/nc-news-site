@@ -11,7 +11,14 @@ export const getArticles = () => {
 
 export const getArticleById = (articleId) => {
     return newsApi.get(`/articles/${articleId}`)
-    .then((res) => {
-        return res.data.article;
-    })
+        .then((res) => {
+            return res.data.article;
+        })
+}
+
+export const getArticleComments = (articleId) => {
+    return newsApi.get(`articles/${articleId}/comments`)
+        .then((res) => {
+            return res.data.comments;
+        })
 }
