@@ -29,6 +29,10 @@ const Comments = ({ article_id }) => {
     if (isError)
         return <div className="comments-list"><p>Error while loading article's comments...</p></div>
 
+    if (comments.length === 0) {
+        return <div className="comments-list"><p>No comments on this article...</p></div>
+    }
+
     return (
         <div className='comments-list'>
             <h2 style={{marginLeft:20}}>Comments</h2>
@@ -40,4 +44,5 @@ const Comments = ({ article_id }) => {
         </div>
     )
 }
+
 export default Comments
