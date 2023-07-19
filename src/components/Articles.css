@@ -1,7 +1,33 @@
 ul {
     list-style-type: none;
 }
-.article-card {
 
-    
+.article-card {
+    padding: 20px;
+}
+
+.article-card {
+    background-color: #f4f5f7;
+    margin: 20px;
+    border: 1px gray dotted;
+    display: flex;
+}
+
+.article-card img {
+    max-width: 200px;
+    max-height: 150px;
+}
+
+.article-card .details {
+    text-align: left;
+    padding: 0 20px;
+}
+
+.article {
+    background-color: #f4f5f7;
+    padding: 1px 20px;
+}
+
+.article .body {
+    text-align: justify;
 }
