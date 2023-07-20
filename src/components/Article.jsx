@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import Moment from 'moment';
 import Comments from './Comments';
-import Votes from './Votes';
+import ArticleVotes from './ArticleVotes';
 
 const Article = () => {
     const [article, setArticle] = useState([])
@@ -27,7 +27,7 @@ const Article = () => {
             setIsError(true);
             console.log('Load article error: ', error)
         })
-    }, [article_id])
+    }, [article_id]);
 
     if (isLoading)
         return <article className="article"><p>Loading article...</p></article>
@@ -47,7 +47,7 @@ const Article = () => {
                     <time dateTime={article.created_at}> {Moment(article.created_at).format('yyyy-MM-DD')} </time>
                     by {article.author}.</p></i>
                 </footer>
-                <Votes votes_count={article.votes} />
+                <ArticleVotes article_id={article_id} votes_count={article.votes} />
             </article>
             <Comments article_id={article_id} />
         </>

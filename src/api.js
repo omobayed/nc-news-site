@@ -22,3 +22,14 @@ export const getArticleComments = (articleId) => {
             return res.data.comments;
         })
 }
+
+export const updateArticleVotes = (articleId, increment) => {
+    const updatedRequestBody = {
+        inc_votes: increment
+    }
+
+    return newsApi.patch(`/articles/${articleId}`, updatedRequestBody)
+        .then((res) => {
+            return res.data.article
+        })
+}
