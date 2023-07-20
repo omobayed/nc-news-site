@@ -36,13 +36,13 @@ const Comments = ({ article_id }) => {
 
     return (
         <div className='comments-list'>
-            <h2 style={{marginLeft:20}}>Comments</h2>
+            <h2 style={{ marginLeft: 20 }}>Comments</h2>
+            <CommentAdder article_id={article_id} setComments={setComments} />
             {comments.map((comment) => {
                 return (
                     <CommentCard key={comment.comment_id} comment={comment} />
                 )
             })}
-            <CommentAdder article_id={article_id} setComments={setComments} />
         </div>
     )
 }
