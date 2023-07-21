@@ -74,7 +74,7 @@ const Articles = () => {
                         defaultValue={sortOptions[0]}
                         labelField="label"
                         valueField="value"
-                        onChange={(values) => setSelectedSort(values[0].value)} />
+                        onChange={(value) => setSelectedSort(value.value)} />
                 </div>
                 <div className='sort-select'>
                     <Select
@@ -82,7 +82,7 @@ const Articles = () => {
                         defaultValue={orderOptions[1]}
                         labelField="label"
                         valueField="value"
-                        onChange={(values) => setSelectedOrder(values[0].value)} />
+                        onChange={(value) => setSelectedOrder(value.value)} />
                 </div>
             </div>
             <article className="articles-cards">
