@@ -67,7 +67,7 @@ const Articles = () => {
     return (
         <>
             <div className='sort-form' >
-                <label htmlFor="sort">Sort by:</label>
+                <label style={{marginTop:5}} htmlFor="sort">Sort by:</label>
                 <div className='sort-select'>
                     <Select
                         options={sortOptions}
