@@ -57,3 +57,12 @@ ul {
 .comment-adder {
     text-align: right;
 }
+
+.sort-form {
+    display: inline-flex;
+    padding-top: 20px;
+}
+
+.sort-select {
+    width: 150px;
+}
