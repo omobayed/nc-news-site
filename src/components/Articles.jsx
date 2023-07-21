@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 import { getArticles } from '../api'
 import ArticleCard from './ArticleCard'
 
-import Select from "react-dropdown-select";
+import Select from "react-select";
 
 const Articles = () => {
     const [articles, setArticles] = useState([])
@@ -71,6 +71,7 @@ const Articles = () => {
                 <div className='sort-select'>
                     <Select
                         options={sortOptions}
+                        defaultValue={sortOptions[0]}
                         labelField="label"
                         valueField="value"
                         onChange={(values) => setSelectedSort(values[0].value)} />
@@ -78,6 +79,7 @@ const Articles = () => {
                 <div className='sort-select'>
                     <Select
                         options={orderOptions}
+                        defaultValue={orderOptions[1]}
                         labelField="label"
                         valueField="value"
                         onChange={(values) => setSelectedOrder(values[0].value)} />
