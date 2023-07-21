@@ -2,8 +2,8 @@ import axios from "axios";
 
 const newsApi = axios.create({ baseURL: 'https://news-api-1vbb.onrender.com/api' })
 
-export const getArticles = () => {
-    return newsApi.get('/articles')
+export const getArticles = (topic) => {
+    return newsApi.get(`/articles${topic ? '?topic=' + topic : ''}`)
         .then((res) => {
             return res.data.articles;
         })
@@ -43,5 +43,12 @@ export const addNewComment = (articleId, username, newComment) => {
     return newsApi.post(`articles/${articleId}/comments`, postedComment)
         .then((res) => {
             return res.data.comment
+        })
+}
+
+export const getAllTopics = () => {
+    return newsApi.get('/topics')
+        .then((res) => {
+            return res.data.topics
         })
 }
