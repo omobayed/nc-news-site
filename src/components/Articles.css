@@ -43,3 +43,17 @@ ul {
     text-align: justify;
     padding: 0px 20px;
 }
+
+.new-comment {
+    border-top: 1px gray dotted;
+    padding: 20px;
+}
+
+.new-comment textarea {
+    width: 100%;
+    min-height: 50px;
+}
+
+.comment-adder {
+    text-align: right;
+}

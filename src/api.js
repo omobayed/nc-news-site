@@ -33,3 +33,15 @@ export const updateArticleVotes = (articleId, increment) => {
             return res.data.article
         })
 }
+
+export const addNewComment = (articleId, username, newComment) => {
+    const postedComment = {
+        "username": username,
+        "body": newComment
+    }
+
+    return newsApi.post(`articles/${articleId}/comments`, postedComment)
+        .then((res) => {
+            return res.data.comment
+        })
+}
